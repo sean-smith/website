@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <title>Sean Smith</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+	
+  </head>
+
+  <body>
+	<!--Written by Sean Smith 2014-->
+    <div class="container">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="projects.html">Projects</a></li>
+          <li><a href="SeanSmith.pdf">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <h3 class="text-muted">Sean Smith</h3>
+      </div>
+
+
+
+    <h1>Projects</h1>
+    <p>All the cool stuff that I'm working on:</p>
+    <ul class="list-group">
+    	<a href="#searover" class="list-group-item">
+    		<h4 class="list-group-item-heading">Sea Rover</h4>
+    		<p class="list-group-item-text">An autonomous crowd-funded seafaring vessel.</p>
+  		</a>
+  		<a href="#bitcoinsentiment" class="list-group-item">
+    		<h4 class="list-group-item-heading">Bitcoin Sentiment</h4>
+    		<p class="list-group-item-text">An algorithm to predict bitcoin value based on online sentiment.</p>
+  		</a>
+  		<a href="#connectapp" class="list-group-item">
+    		<h4 class="list-group-item-heading">Connect App</h4>
+    		<p class="list-group-item-text">An app that enables realtime networking face to face.</p>
+  		</a>
+  		<a href="#readytable" class="list-group-item">
+    		<h4 class="list-group-item-heading">Ready Table</h4>
+    		<p class="list-group-item-text">An autonomous crowd funded seafaring vessel.</p>
+  		</a>
+  		<a href="#drone" class="list-group-item">
+    		<h4 class="list-group-item-heading">Thinker Craft</h4>
+    		<p class="list-group-item-text">An autonomous indoor quadcopter that intelligently adapts to new environments.</p>
+  		</a>
+	</ul>
+
+
+	<!--------------------------------------------------- Bitcoin Sentiment ----------------------------------------------->
+    <div class="container page-header">
+		<div class="panel panel-default" id="bitcoinsentiment">
+
+  			<div class="panel-body">
+  			<div class="project-header"><h1>BitcoinSentiment<h1></div>
+			<div class="page-header"><h3>Abstract<h3></div>
+
+			<p>This is a HackMIT 2014 project. Source code can be found <a href="https://github.com/sean-smith/BitcoinSentiment">here</a>. The scraping and sentiment analysis was written in python and it was graphed using pyplot.</p>
+
+			<p>We're trying to predict bitcoin values based on sentiment on online communities. Our initial hypothesis is that based on good or bad news in online forums, bitcoin prices rise and fall. So by looking at existing data we are trying to find a correlation.</p>
+
+			<p>We were inspired by the work of Peter Gloor and Jermain Kaminski on <a href="http://humancomputation.com/ci2014/papers/Active%20Papers%5CPaper%2048.pdf">how twitter posts effect bitcoin value</a>.</p>
+
+			<div class="page-header"><h3>Methodology<h3></div>
+
+			<p>We Used the <a href="http://www.idolondemand.com/developer/apis">Idol On Demand api</a> from HP to determine aggregate sentiment. The sentiment is a value between -1 and 1, 1 being "I LOVE BITCOIN" to -1 being "SELL YOUR BITCOIN NOW". Each post over the historical data was summed to get a daily correct value. Our data was taken from the reddit bitcoin community.</p>
+
+			<p>The historical bitcoin prices were retrieved from the <a href="https://www.coinbase.com/docs/api/overview">coinbase API</a>: </p>
+  		
+  			<div class="page-header"><h3>Results<h3></div>
+  		
+  		
+  			<p>The initial data is messy. When compared to the graph of bitcoin value, a clear correlation is not evident.</p>
+  		
+  			<img class="img-thumbnail" src="https://raw.githubusercontent.com/sean-smith/BitcoinSentiment/master/Screen%20Shot%202014-10-08%20at%202.44.59%20PM.png" alt="Bitcoin Prices">
+  			<img class="img-thumbnail" src="https://raw.githubusercontent.com/sean-smith/BitcoinSentiment/master/Screen%20Shot%202014-10-08%20at%202.40.24%20PM.png" alt="Bitcoin Sentiment">
+  		
+  			<p>So we Cleaned up the data by applying a filter:</p>
+  			<img class="img-thumbnail" src="https://raw.githubusercontent.com/sean-smith/BitcoinSentiment/master/sentiment_average.png" alt="Filtered Sentiment">
+		
+		
+			<div class="page-header"><h3>Data<h3></div>
+			<p>Feel free to use our data. There are two text files that have json data dumped straight in them. Or you can use the csv file if you'd like an easier file format. Please attribute your work to <a href="https://github.com/sean-smith/BitcoinSentiment">this github repo</a>.</p>
+		  	
+  		</div>
+  		<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>	
+  	</div>
+  	
+  	<!--------------------------------------------------- Connect ----------------------------------------------->
+  	<div class="panel panel-default" id="connectapp">
+
+  			<div class="panel-body">
+  				<div class="project-header"><h1>Connect<h1></div>
+				<p>Connect is an iOS app that facilitates quick networking with the people around you. It is designed with first encounters at conventions, business meetings, hackathons, or similar gatherings in mind.
+
+					The app displays a list of users on the same Wi-Fi network, complete with a picture and a list of interests for each user. Need to find graphic designer at a hackathon, or cardiologist at a medical conference? Connect has you covered. Just want to find someone in the room who shares your interests? Connect makes that easy, too.</p>
+				
+				<p>Thanks to our excellent designer <a href="http://www.tommyjpark.com/">Tommy Park</a> we have beautiful slides. But fear not the code exists on github <a href="https://github.com/valentin7/Connect">here</a>.
+				
+				<img class="img-thumbnail" src="https://camo.githubusercontent.com/14538e293f6e877d634ee645c3719a29f3ea4495/68747470733a2f2f7261772e6769746875622e636f6d2f76616c656e74696e372f436f6e6e6563742f6d61737465722f70726573656e746174696f6e2f66696e616c2f50726573656e746174696f6e5f636f6e6e6563745f73637265656e2e706e67
+" alt="Home Screen">
+				<img class="img-thumbnail" src="images/connect_welcome.png" alt="Welcome">
+				<img class="img-thumbnail" src="https://camo.githubusercontent.com/26d74f637b736b25fd7e91f62b1d4ca0f8fcd445/68747470733a2f2f7261772e6769746875622e636f6d2f76616c656e74696e372f436f6e6e6563742f6d61737465722f70726573656e746174696f6e2f66696e616c2f50726573656e746174696f6e2d30332e706e67" alt="Sign In">
+				<img class="img-thumbnail" src="https://camo.githubusercontent.com/40320b78303b34424878349977286e2859fb8e05/68747470733a2f2f7261772e6769746875622e636f6d2f76616c656e74696e372f436f6e6e6563742f6d61737465722f70726573656e746174696f6e2f66696e616c2f50726573656e746174696f6e5f726573756c745f73637265656e2e676966" alt="results">
+
+		
+	  		</div>
+	  		<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>
+  		
+  	</div>
+		
+		
+  	<!--------------------------------------------------- Sea Rover ----------------------------------------------->
+  	<div class="panel panel-default" id="searover">
+  		<div class="panel-body">
+  			<div class="project-header"><h1>Sea Rover<h1></div>
+  			<img class="img-thumbnail" src="images/theboat.jpg" alt="The Boat">
+    		
+    		<p>Sea Rover is an autonomous boat that's designed to navigate open ocean for months at a time. I worked on both the engineering and the software development side of the project. We started building a prototype and were soon out of money so we set up a <a href="https://www.kickstarter.com/projects/bdommie/sea-rover">kickstarter</a>. The kickstarter raised in excess of 2,000$ so we spent the summer designing and building the boat. </p>  
+
+    		<p> The kickstarter video shows an early prototype of the boat. I'm behind the camera for those of you wondering.</p>
+    		
+    		<!--This is my attempt to imbed the video. This issue was it automatically played. Will put into a modal later.
+    		<div class="embed-responsive embed-responsive-4by3" id="boatvideo">
+ 				 <iframe class="embed-responsive-item" src="https://d2pq0u4uni88oo.cloudfront.net/projects/632281/video-281750-h264_high.mp4" height="480px" width="640px"></iframe>
+			</div>
+			-->
+			
+			<a href="https://www.kickstarter.com/projects/bdommie/sea-rover"><img src="images/kickstarter.png" onmouseover="this.src='images/hover.png'" onmouseout="this.src='images/kickstarter.png'" alt="Kickstarter video"></a>
+
+			<div class="project-header"><h3>Frame</h3></div>
+    		
+    		<p>The Hull
+
+				We are using PVC and ABS plastics to construct a simple, rugged frame. This material choice makes the design process flexible and assembly a breeze—especially since so many plumbing parts are available at the local home improvement store. 
+				We decided on a pontoon design for its simplicity and stability. On top of two large pontoons rests the frame for our electronics and other hardware—simple and robust. Below the pontoons a keel filled with concrete and corrugated plastic sheeting keep the boat upright and traveling in a straight line.
+				As a precaution against unforeseen accidents, where the hull could crack or be otherwise punctured, we also filled the hull with a high-volume, low-density foam. Hopefully, this measure will prevent any kind of catastrophic failure. We want to assure that the rover will stay afloat regardless of any adverse conditions.
+
+			</p>
+    		<img class="img-project" src="images/bare_frame.jpg" alt="The Boat frame" height="300px">
+    		
+    		
+    		<div class="project-header"><h3>Computer and Navigation System</h3></div>
+    		
+    		<p> We Used an Arduino Mega with a power shield and two wings that allowed us to easily secure the wires.</p>
+    		<img class="img-project" src="images/arduino.jpg" alt="Arduino" height="300px">
+    		
+    		<p>The Arduino read in data from a <a href="https://www.sparkfun.com/products/11571">gps chip</a> it then used a <a href="http://www.amazon.com/365buying-GY-271-HMC5883L-Compass-Magnetometer/dp/B008V9S64E/ref=sr_1_2?ie=UTF8&qid=1412815670&sr=8-2&keywords=magnetometer">magnetometer</a> to turn to a set waypoint. It then adjusted the power to the <a href="http://www.proboatmodels.com/Products/Default.aspx?ProdID=PRB2314">esc</a>. Which then controlled the speed that the <a href="http://www.basspro.com/Minn-Kota-Riptide-TransomMount-Saltwater-Trolling-Motors/product/103795/">outboard motor</a> turned.
+    		<img class="img-project" src="images/night_boat.jpg" alt="The Boat at n\Night" height="300px">
+    		
+    		<p>We Laser cut a <a href="images/com_tower.pdf">frame</a> to fit the Arduino and two gps antenna. We used a <a href="http://www.rei.com/product/869419/spot-trace-gps-tracker">spot</a> to send gps data back to a server in California so we can see the location of the boat.</p>
+    		<img class="img-project" src="images/arduino_tower.jpg" alt="Arduino Tower" height="300px">
+    		
+    		<h3>Code</h3>
+    		
+    		<p> The code was written in C and is all open source. You can find all the code in it's <a href="https://github.com/kevcole1/SeaRover">github repository</a>.
+    		<p> I designed and built the software from scratch. Since we needed a rigid architecture to control the state of the boat I designed a state machine that rigidly controls the state the boat is in. By clearly specifying each state we avoid our code breaking and the boat being lost forever. 
+    		<img class="img-thumbnail" src="images/state_machine.png" alt="State Machine">
+    		
+    		
+  		</div>
+  		<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>
+	</div>
+  
+  <!--------------------------------------------------- Ready Table ----------------------------------------------->
+  <div class="panel panel-default" id="readytable">
+
+  		<div class="panel-body">
+  		<div class="page-header"><h1>Ready Table<h1></div>
+  		
+		<p>This is a web app that allows restaurant owners to create an online based table wait list. They enter the party size, name, and number of the party. The party then gets placed in a queue. When a spot opens up they can "dequeue" a party which will remove them from the wait list and send a text to the party informing them that their table is ready.
+
+This app ensures that you never miss your table. Rather than waiting in a crowded restaurant, you can visit nearby shops and art galleries. Restaurants benefit from increased wait list retention and a capacity to deliver from better overall service.</p>
+		
+		<img class="img-thumbnail" src="https://raw.githubusercontent.com/sean-smith/ReadyTable/master/Design/screenshots/Homepage.png" alt="Homepage">
+		<img class="img-thumbnail" src="https://raw.githubusercontent.com/sean-smith/ReadyTable/master/Design/screenshots/User%20Page.png" alt="State Machine">
+		<img class="img-thumbnail" src="https://raw.githubusercontent.com/sean-smith/ReadyTable/master/Design/screenshots/Message%20Page.png" alt="State Machine">
+		</div>
+		<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>
+ </div>
+ 
+ <!--------------------------------------------------- Drone ----------------------------------------------->
+		<div class="panel panel-default" id="drone">
+
+  			<div class="panel-body">
+  			<div class="project-header"><h1>Thinker Craft<h1></div>
+  			
+  			<div class="page-header"><h3>Introduction<h3></div>
+			<p> I have applied for and received funding for an autonomous indoor drone that uses slam to navigate. Thanks to the <a href="http://www.bu.edu/urop/">Boston University Undergraduate Research Program</a> I'm able to pursue my idea.<p>
+			<p> The concept is to create a drone that utilizes <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.149.7732&rep=rep1&type=pdf">orthoslam</a> to navigate in a new and changing environment. Initially I will use 6 sonar sensors, each facing a different direction. They will tell the quadcopter where the walls are. The quadcopter will then match that data with it's onboard gyroscope and accelerometer data to create a map of it's environment.</p>
+			<img class="img-project" src="images/sonar.jpg" alt="Homepage">
+			
+			
+			</div>
+		</div>
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+      <div class="footer row">
+        <p class="col-md-4">&copy; Sean Smith 2014</p>
+        <p class="pull-right">650-315-8040</p>
+
+      </div>
+
+
+  </body>
+</html>
