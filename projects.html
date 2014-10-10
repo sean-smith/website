@@ -67,6 +67,10 @@
     		<h4 class="list-group-item-heading">Thinker Craft</h4>
     		<p class="list-group-item-text">An autonomous indoor quadcopter that intelligently adapts to new environments.</p>
   		</a>
+  		<a href="#automatedtesting" class="list-group-item">
+    		<h4 class="list-group-item-heading">Automated Testing API</h4>
+    		<p class="list-group-item-text">I spent the summer creating an easy way for ActivePrime to test their product.</p>
+  		</a>
 	</ul>
 
 
@@ -216,6 +220,65 @@ This app ensures that you never miss your table. Rather than waiting in a crowde
 			
 			</div>
 		</div>
+		
+		<!--------------------------------------------------- Automated Testing ----------------------------------------------->
+		<div class="panel panel-default" id="automatedtesting">
+
+  			<div class="panel-body">
+  			<div class="project-header"><h1>Automated Testing API<h1></div>
+  			<!-- <img class="img-project" src="images/activeprime.png" alt="Activeprime logo"> -->
+			<p> I worked for <a href="www.activeprime.com">ActivePrime</a> the last two summers. They make <a href="http://en.wikipedia.org/wiki/Customer_relationship_management">crm</a> software that cleans up data and searches for data more efficiently than <a href="https://www.oracle.com/applications/customer-experience/crm/index.html">oracle crm</a> software or <a href="https://www.salesforce.com/crm/">salesforce</a>.</p>
+			<p> Over the summer I created an <a href="http://d2.activeprime.com/ce/autotest/api/index.html">automated test api</a> that automatically logs in and runs a series of tests on their product. I wrote a bunch of tests using the api and now they have most of their Quality Assurance completely automated. A screenshot of the documentation is below. Take a look at the <a href="http://d2.activeprime.com/ce/autotest/api/index.html">documentation</a> and see how easy it is to write test cases. It wasn't easy to write that functionality!</p>
+			<img class="img-project" src="images/documentation.png" alt="Documentation Screenshot">
+			<p>The code was all written in python using <a href="http://www.seleniumhq.org/">Selenium</a>. If you don't know what Selenium is check it out. It's a robust automated testing tool and it'll make your QA process a lot easier.</p>
+			<p>This code below is an example of one complete testcase:
+			
+			<pre>
+from core import cod
+from cod import COD
+
+params = {
+  'url':'https://crmondemand.com/OnDemand/logon.jsp',
+  'browser': 'firefox',       #currently this is firefox, ie, safari, and chrome
+  'ap_app': ['cv', 'ce'],     #apps need to be declared here to run
+  'crm': 'cod',
+  'username':'USERNAME',
+  'password':'Password',
+  'mode': 'production',      #when in production mode test results will sync to a testing database
+  'time': cod.get_time(),
+  'ip': cod.get_ip(),
+  'test_id': '158',
+  'tester_name': 'Sean',
+  'platform': 'mac'          #declare your platform--this helps with choosing a browser settings
+}
+
+
+#CE 158==================
+crm = COD.startup(params)
+crm.action_bar_open()
+
+crm.ce.input_box_exists(expects=True)
+
+crm.ce.search_box_message_is_valid(expects=True)     
+crm.ce.get_aps_search_text(expects="")           
+crm.ce.aps_search_enter("", "Accounts")
+print(crm.ce.get_search_results())
+crm.ce.aps_search_go("", "Accounts")        
+print(crm.ce.get_search_results())
+crm.ce.notify_results()
+
+
+
+crm.ce.quit(add_to_database=False)
+print("Passed..."+str(crm.ce.test_passed()))
+			</pre>
+			<p> It's very straightforward python code yet very powerful because of it's simplicity and generality.</p>
+			</div>
+		</div>		
+		
+		
+		
+		
 
       <div class="footer row">
         <p class="col-md-4">&copy; Sean Smith 2014</p>
