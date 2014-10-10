@@ -43,15 +43,25 @@
         </ul>
         <h3 class="text-muted">Sean Smith</h3>
       </div>
-    
-<form role="form">
+
+
+<form role="form"enctype="multipart/form-data" method="post" action="http://www.freedback.com/mail.php" accept-charset="UTF-8">
+	<div>
+		<input type="hidden" name="acctid" id="acctid" value="jxb9njoll8z81xyv" />
+		<input type="hidden" name="formid" id="formid" value="1254588" />
+		<input type="hidden" name="required_vars" id="required_vars" value="name,email,field-4b90fb53e974f50" />
+	</div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="text" type="text" name="name" id="name" class="form-control" placeholder="Prove you're not a robot!">
+  </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="So I can email you back.">
+    <input type="text" name="email" id="email" class="form-control" placeholder="So I can email you back.">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Message</label>
-    <textarea class="form-control" rows="3" placeholder="Beware NSA can see any text you write here."></textarea>
+    <textarea name="field-4b90fb53e974f50" id="field-4b90fb53e974f50" class="form-control" rows="3" placeholder="Beware NSA can see any text you write here."></textarea>
   </div>
   
   <button type="submit" class="btn btn-lg btn-success">Submit</button>
