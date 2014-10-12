@@ -16,7 +16,9 @@
 
     <!-- Custom styles for this template -->
     <link href="jumbotron-narrow.css" rel="stylesheet">
-	
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/lightbox.min.js"></script>
+	<link href="css/lightbox.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -70,6 +72,10 @@
   		<a href="#automatedtesting" class="list-group-item">
     		<h4 class="list-group-item-heading">Automated Testing API</h4>
     		<p class="list-group-item-text">I spent the summer creating an easy way for ActivePrime to test their product.</p>
+  		</a>
+  		<a href="#automaticdoor" class="list-group-item">
+    		<h4 class="list-group-item-heading">Key Card door lock</h4>
+    		<p class="list-group-item-text">I hacked together a way to get into my dorm with just my student id.</p>
   		</a>
 	</ul>
 
@@ -274,10 +280,70 @@ print("Passed..."+str(crm.ce.test_passed()))
 			</pre>
 			<p> It's very straightforward python code yet very powerful because of it's simplicity and generality.</p>
 			</div>
+			<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>
 		</div>		
 		
 		
-		
+		<div class="panel panel-default" id="automaticdoor">
+
+  			<div class="panel-body">
+  			<div class="project-header"><h1>Key Card Door Lock<h1></div>
+  			<p>I decided to build an nfc door lock which could unlock my door if I tapped my student id. I was sick of bringing both my key and student id everywhere when I knew one would suffice, and I had a PN532 rfid scanner lying around. I decided on the <a href="http://www.amazon.com/RioRand-Nano-v3-0-for-Arduino/dp/B00F7RPAZ6/ref=sr_1_2?s=electronics&ie=UTF8&qid=1413090071&sr=1-2&keywords=arduino+nano">arduino nano</a> because of the awesome price and small size, meaning I could stick it to my door and leave it there. I also wanted a failsafe method to get into my dorm incase I forgot my card so I bought a small <a href="http://www.amazon.com/gp/product/B008A30NW4/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1">keyboard</a></p>
+  			<div class="page-header"><h3>Parts<h3></div>
+  			<ul>
+ 				<li><a href="http://www.amazon.com/RioRand-Nano-v3-0-for-Arduino/dp/B00F7RPAZ6/ref=sr_1_2?s=electronics&ie=UTF8&qid=1413090071&sr=1-2&keywords=arduino+nano">Arduino Nano</a></li>
+ 				<li><a href="http://www.amazon.com/gp/product/B00AZVKLFI/ref=oh_aui_detailpage_o08_s00?ie=UTF8&psc=1">4050 Level Shifter</a> (comes with rfid shield)</li>
+				<li><a href="http://www.adafruit.com/product/364">PN532 RFID Breakout</a></li>
+ 				<li><a href="http://www.amazon.com/gp/product/B00EDYG47W/ref=oh_aui_detailpage_o07_s00?ie=UTF8&psc=1">Servo</a></li>
+ 				<li><a href="http://www.amazon.com/gp/product/B008A30NW4/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1">keyboard</a></li>
+			</ul>  
+			<div class="page-header"><h3>Build<h3></div>
+			<p>I had some trouble initially getting my code on the nano. I solved that by installing the latest ftdi driver. Follow the <a href="http://www.ftdichip.com/Support/Documents/AppNotes/AN_134_FTDI_Drivers_Installation_Guide_for_MAC_OSX.pdf">instructions</a> carefully and install only the vcp driver. This solved my problem.
+  			<p>I connected the arduino nano via SPI to the PN532. I had to use the level shifter because the PN532 operates off a 3.3V circuit whereas the arduino operates on 5V. I looked at the <a href="http://www.nxp.com/documents/data_sheet/74HC4050_CNV.pdf">level shifter documentation</a> but I'll spare you the trouble and include a picture of the pinout below.</p>
+  			<img class="img-thumbnail" src="images/pinout.png" alt="Documentation Screenshot">
+  			<p>I connected the arduino based on the <a href="https://learn.adafruit.com/adafruit-pn532-rfid-nfc/breakout-wiring">adafruit guide</a> for the uno. I tried to draw a better picture than is included on their site. Follow their wiring instructions (included below and look at my picture and it shouldn't be hard. </p>
+  			<blockquote>
+  				<p>
+      Wire up the 4050 level shifter chip to the Arduino as shown. The notch in the 4050 is at the 'top' in this image.<ul>
+<li><span>Arduino digital pin <strong>2</strong> is connected to 4050 pin <strong>9</strong> (orange wire)</span></li>
+<li><span>Arduino digital pin <strong>3</strong> is connected to 4050 pin <strong>11</strong>(yellow wire)</span></li>
+<li><span>Arduino digital pin <strong>4</strong> is connected to 4050 pin <strong>14</strong> (green wire)</span></li>
+</ul>
+<p>On the breakout board</p>
+<ul>
+<li><span><strong>3.3Vin</strong> is connected to the Arduino <strong>3.3V</strong> pn</span></li>
+<li><span><strong>SCK</strong> is connected to 4050 pin <strong>10</strong> (orange wire)</span></li>
+<li><span><strong>MISO</strong> is connected to Arduino pin <strong>5</strong> (blue wire)</span></li>
+<li><span><strong>MOSI</strong> is connected to 4050 pin<strong> 12</strong> (yellow wire)</span></li>
+<li><span><strong>SSEL</strong> is connected to 4050 pin <strong>15&amp; </strong>(green wire)</span></li>
+<li><span><strong>GND</strong> connects to Arduino<strong> ground</strong> (black wire)</span></li>
+</ul>
+<p>Also connect 4050 pin #1 to <strong>3.3V</strong> and pin #8 to <strong>ground</strong>.</p>
+<p>Click to see a larger image. The red power wire should be connected to the <strong>3.3v </strong>pin on the Arduino!</p>
+
+  				
+  				</p>
+			</blockquote>
+  			 
+  			<a href="images/drawing.png" data-lightbox="nfc" data-title="Circuit schematic for rfid door lock project"><img class="img-thumbnail" src="images/drawing.png" alt="Circuit schematic for rfid door lock project"></a>		
+  			<p>Here's a picture of my breadboarded out project. It's really too messy to follow.</p>
+  			<div class="row">
+  				<div class="col-md-4">
+  					<a href="images/project.png" data-lightbox="nfc" data-title="Messy but working rfid circuit"><img class="img-thumbnail" src="images/project.png" alt="Messy image"></a>
+  				</div>
+  				<div class="col-md-4">
+  					<a href="images/nano.jpg" data-lightbox="nfc" data-title="A closer image of the nano and the 4050 level shifter chip."><img class="img-thumbnail" src="images/nano.jpg" alt="Messy image"></a>
+  				</div>
+  				<div class="col-md-4">
+  					<a href="images/pn532.png" data-lightbox="nfc" data-title="Image of the pn532 board showing the SEL jumpers and their correct position for spi."><img class="img-thumbnail" src="images/pn532.png" alt="Messy image"></a>
+  				</div>
+  			</div>
+  					
+			<p>&nbsp</p>
+  			<p>To be continued after I mount it on the door.</p>
+  			</div>
+  			<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>
+  		</div>
 		
 
       <div class="footer row">
