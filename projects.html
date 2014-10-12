@@ -300,7 +300,7 @@ print("Passed..."+str(crm.ce.test_passed()))
 			<div class="page-header"><h3>Build<h3></div>
 			<p>I had some trouble initially getting my code on the nano. I solved that by installing the latest ftdi driver. Follow the <a href="http://www.ftdichip.com/Support/Documents/AppNotes/AN_134_FTDI_Drivers_Installation_Guide_for_MAC_OSX.pdf">instructions</a> carefully and install only the vcp driver. This solved my problem.
   			<p>I connected the arduino nano via SPI to the PN532. I had to use the level shifter because the PN532 operates off a 3.3V circuit whereas the arduino operates on 5V. I looked at the <a href="http://www.nxp.com/documents/data_sheet/74HC4050_CNV.pdf">level shifter documentation</a> but I'll spare you the trouble and include a picture of the pinout below.</p>
-  			<img class="img-thumbnail" src="images/pinout.png" alt="Documentation Screenshot">
+  			<a href="images/pinout.png" data-lightbox="nfc" data-title="Pinout for 4050 level shifter chip."><img class="img-thumbnail" src="images/pinout.png" alt="Pinout for 4050"></a>
   			<p>I connected the arduino based on the <a href="https://learn.adafruit.com/adafruit-pn532-rfid-nfc/breakout-wiring">adafruit guide</a> for the uno. I tried to draw a better picture than is included on their site. Follow their wiring instructions (included below and look at my picture and it shouldn't be hard. </p>
   			<blockquote>
   				<p>
@@ -335,7 +335,7 @@ print("Passed..."+str(crm.ce.test_passed()))
   					<a href="images/nano.jpg" data-lightbox="nfc" data-title="A closer image of the nano and the 4050 level shifter chip."><img class="img-thumbnail" src="images/nano.jpg" alt="Messy image"></a>
   				</div>
   				<div class="col-md-4">
-  					<a href="images/pn532.png" data-lightbox="nfc" data-title="Image of the pn532 board showing the SEL jumpers and their correct position for spi."><img class="img-thumbnail" src="images/pn532.png" alt="Messy image"></a>
+  					<a href="images/pn532.png" data-lightbox="nfc" data-title="Image of the pn532 board showing the SEL  jumpers and their correct position for spi."><img class="img-thumbnail" src="images/pn532.png" alt="Messy image"></a>
   				</div>
   			</div>
   					
