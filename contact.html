@@ -44,9 +44,12 @@
         </ul>
         <h3 class="text-muted">Sean Smith</h3>
       </div>
-
+<div id="success" class="alert alert-success alert-dismissible" role="alert" daiply>
+  <strong>Thank you!</strong> I will be in contact with you soon. <button type="button" id="closebutton" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+</div>
+<div id="onsubmit">
 <h4>Please use <a href="http://en.wikipedia.org/wiki/Pretty_Good_Privacy">pgp</a> if you want your message to stay private. My public key is <a href="https://pgp.mit.edu/pks/lookup?op=get&search=0x76D78F0500D026C4">here</a>.</h4>
-<form role="form" id="form" method="post" action="http://cs-people.bu.edu/swsmith/email2.php" accept-charset="UTF-8">
+<form role="form" id="form" method="post" action="" accept-charset="UTF-8">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" class="form-control" placeholder="Prove you're not a robot!">
@@ -60,11 +63,12 @@
     <textarea type="text" name="message" id="message" class="form-control" rows="3" placeholder="Beware NSA can see any text you write here."></textarea>
   </div>
 
-  <button type="submit" class="btn btn-md btn-success">Submit</button>
+  <button id="submit" type="submit" class="btn btn-md btn-success">Submit</button>
 </form>
 <p>&nbsp</p>
 <h3>Alternatively you can email me at <a href="mailto:swsmith@bu.edu?Subject=WEBSITE_MAIL" target="_top">
 swsmith@bu.edu</a></h3>
+</div>
 <p>&nbsp</p>
       <div class="footer row">
         <p class="col-md-4">&copy; Sean Smith 2014</p>
@@ -76,10 +80,33 @@ swsmith@bu.edu</a></h3>
 
 
     <script>
+    $("#success").hide();
     $(function(){
+      $("#closebutton").click(function(){
+          $("#onsubmit").fadeTo("fast", 1, function(){
+              $("#name, #email, #message, #submit").attr("disabled", false);
+              $("#name, #email, #message").val("");
+              $("#success").hide();
+          });
+      });
       $("#form").submit(function(event){
-        console.log(event.val());
+        console.log(event);
+        var datastring = "name="+$("#name").val()+"&email="+$("#email").val()+"&message="+$("#message").val();
+        $.ajax({
+            type: "POST",
+            url: "http://cs-people.bu.edu/swsmith/email2.php",
+            data: datastring,
+            success: function(){
+                console.log("Success")
+                $( "#onsubmit" ).fadeTo( "fast" , 0.5, function() {
+                    $("#success").show();
+                    $("#name, #email, #message, #submit").attr("disabled", true);
+                });
+            }
+
+        })
         event.preventDefault();
+        return false;
       });
 
 
