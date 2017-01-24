@@ -11,11 +11,8 @@ clean:
 
 
 deploy:
-	aws s3 sync ../sean-smith.github.io s3://seanssmith.com \
-		--exclude ".git/*" \
-		--exclude ".gitignore" \
+	jekyll build
+	aws s3 sync _site s3://seanssmith.com \
 		--exclude "*.DS_STORE" \
-		--exclude "Makefile" \
-		--exclude "_site" \
 		--delete
 
