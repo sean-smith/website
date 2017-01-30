@@ -12,13 +12,14 @@
     <title>Sean Smith</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/lib/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="jumbotron-narrow.css" rel="stylesheet">
-	<script src="js/jquery-1.11.0.min.js"></script>
-	<script src="js/lightbox.min.js"></script>
-	<link href="css/lightbox.css" rel="stylesheet" />
+    <link href="css/magic.css" rel="stylesheet">
+    <link href="css/lib/jumbotron-narrow.css" rel="stylesheet">
+	<script src="js/lib/jquery-1.11.0.min.js"></script>
+	<script src="js/lib/lightbox.min.js"></script>
+	<link href="css/lib/lightbox.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -41,6 +42,7 @@
           <li><a href="SeanSmith.pdf">Resume</a></li>
           <li><a href="news.html">News</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="//blog.seanssmith.com">Blog</a></li>
         </ul>
         <h3 class="text-muted">Sean Smith</h3>
       </div>
@@ -81,7 +83,7 @@
 	</ul>
 
 
-	<!--------------------------------------------------- Bitcoin Sentiment ----------------------------------------------->
+	<!-- ============================= Bitcoin Sentiment ========================================= -->
 	<!--  <a href="" data-lightbox="" data-title=""><img class="img-thumbnail" src="" alt=""></a>  -->
     <div class="container page-header">
 		<div class="panel panel-default" id="bitcoinsentiment">
@@ -122,7 +124,7 @@
   		<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>
   	</div>
 
-  	<!--------------------------------------------------- Connect ----------------------------------------------->
+  	<!-- Connect -->
   	<div class="panel panel-default" id="connectapp">
 
   			<div class="panel-body">
@@ -139,11 +141,13 @@
   	</div>
 
 
-  	<!--------------------------------------------------- Sea Rover ----------------------------------------------->
+  	<!-- ======== Sea Rover =========================-->
   	<div class="panel panel-default" id="searover">
   		<div class="panel-body">
   			<div class="project-header"><h1>Sea Rover<h1></div>
+        <a href="/images/theboat.jpg" data-lightbox="theboat" data-title="Sea Rover">
   			<img class="img-thumbnail" src="images/theboat.jpg" alt="The Boat">
+        </a>
 
     		<p>Sea Rover is an autonomous boat that's designed to navigate open ocean for months at a time. I worked on both the engineering and the software development side of the project. We started building a prototype and were soon out of money so we set up a <a href="https://www.kickstarter.com/projects/bdommie/sea-rover">kickstarter</a>. The kickstarter raised in excess of 2,000$ so we spent the summer designing and building the boat. </p>
 
@@ -166,32 +170,43 @@
 				As a precaution against unforeseen accidents, where the hull could crack or be otherwise punctured, we also filled the hull with a high-volume, low-density foam. Hopefully, this measure will prevent any kind of catastrophic failure. We want to assure that the rover will stay afloat regardless of any adverse conditions.
 
 			</p>
-    		<img class="img-project" src="images/bare_frame.jpg" alt="The Boat frame" height="300px">
-
+        <a href="/images/bare_frame.jpg" data-lightbox="theboat" data-title="The Frame">
+    		  <img class="img-project" src="images/bare_frame.jpg" alt="The Boat frame" height="300px">
+        </a>
 
     		<div class="project-header"><h3>Computer and Navigation System</h3></div>
 
     		<p> We Used an Arduino Mega with a power shield and two wings that allowed us to easily secure the wires.</p>
-    		<img class="img-project" src="images/arduino.jpg" alt="Arduino" height="300px">
+        <a href="/images/arduino.jpg" data-lightbox="theboat" data-title="Arduino Controller">
+          <img class="img-project" src="images/arduino.jpg" alt="Arduino" height="300px">
+        </a>
 
     		<p>The Arduino read in data from a <a href="https://www.sparkfun.com/products/11571">gps chip</a> it then used a <a href="http://www.amazon.com/365buying-GY-271-HMC5883L-Compass-Magnetometer/dp/B008V9S64E/ref=sr_1_2?ie=UTF8&qid=1412815670&sr=8-2&keywords=magnetometer">magnetometer</a> to turn to a set waypoint. It then adjusted the power to the <a href="http://www.proboatmodels.com/Products/Default.aspx?ProdID=PRB2314">esc</a>. Which then controlled the speed that the <a href="http://www.basspro.com/Minn-Kota-Riptide-TransomMount-Saltwater-Trolling-Motors/product/103795/">outboard motor</a> turned.
-    		<img class="img-project" src="images/night_boat.jpg" alt="The Boat at n\Night" height="300px">
 
-    		<p>We Laser cut a <a href="images/com_tower.pdf">frame</a> to fit the Arduino and two gps antenna. We used a <a href="http://www.rei.com/product/869419/spot-trace-gps-tracker">spot</a> to send gps data back to a server in California so we can see the location of the boat.</p>
-    		<img class="img-project" src="images/arduino_tower.jpg" alt="Arduino Tower" height="300px">
+
+        <a href="/images/night_boat.jpg" data-lightbox="theboat" data-title="The Boat at Night">
+    		  <img class="img-project" src="images/night_boat.jpg" alt="The Boat at n\Night" height="300px">
+        </a>
+
+    		<p>We Laser cut a <a href="/images/com_tower.pdf">frame</a> to fit the Arduino and two gps antenna. We used a <a href="http://www.rei.com/product/869419/spot-trace-gps-tracker">spot</a> to send gps data back to a server in California so we can see the location of the boat.</p>
+        <a href="/images/arduino_tower.jpg" data-lightbox="theboat" data-title="Communications Tower">
+    		  <img class="img-project" src="images/arduino_tower.jpg" alt="Arduino Tower" height="300px">
+        </a>
 
     		<h3>Code</h3>
 
     		<p> The code was written in C and is all open source. You can find all the code in it's <a href="https://github.com/kevcole1/SeaRover">github repository</a>.
     		<p> We designed and built the software from scratch. Since we needed a rigid architecture to control the state of the boat we designed a state machine that rigidly controls the state the boat is in. By clearly specifying each state we avoid our code breaking and the boat being lost forever.
-    		<img class="img-thumbnail" src="images/state_machine.png" alt="State Machine">
+        <a href="/images/state_machine.png" data-lightbox="theboat" data-title="Code Diagram">
+    		  <img class="img-thumbnail" src="/images/state_machine.png" alt="State Machine">
+        </a>
 
 
   		</div>
   		<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>
 	</div>
 
-  <!--------------------------------------------------- Ready Table ----------------------------------------------->
+  <!--================== Ready Table ===============-->
   <div class="panel panel-default" id="readytable">
 
   		<div class="panel-body">
@@ -206,7 +221,7 @@ This app ensures that you never miss your table. Rather than waiting in a crowde
 		<div class="panel-footer"><a class="btn btn-primary btn-sm" href="#" role="button">Top</a></div>
  </div>
 
- <!--------------------------------------------------- Drone ----------------------------------------------->
+ <!--========================== Drone ============================-->
 		<div class="panel panel-default" id="drone">
 
   			<div class="panel-body">
@@ -221,7 +236,7 @@ This app ensures that you never miss your table. Rather than waiting in a crowde
 			</div>
 		</div>
 
-		<!--------------------------------------------------- Automated Testing ----------------------------------------------->
+		<!--================ Automated Testing ============================-->
 		<div class="panel panel-default" id="automatedtesting">
 
   			<div class="panel-body">

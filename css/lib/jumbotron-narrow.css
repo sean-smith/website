@@ -1,25 +1,3 @@
-/* Space out content a bit */
-body {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-image: url("shattered.png");
-}
-
-.row_s{
-  border-radius:2em;
-  height: 256px;
-  background-color: #eeeeee;
-  margin-bottom: 10px;
-
-}
-
-#circle_image {
-height:256px;
-padding-top:64px;
-padding-bottom:auto;
-
-}
-
 
 div.row_s [class*="span"] .center-in-span {
    float: none;

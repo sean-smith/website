@@ -1,0 +1,7 @@
+# Configuration file for jekyll
+
+
+# Don't include un-necessary files
+exclude:
+  - Makefile
+  - README.md
