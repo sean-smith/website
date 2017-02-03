@@ -1,5 +1,8 @@
 # Configuration file for jekyll
 
+# Rename _dirs
+layouts_dir:  layouts
+includes_dir: includes
 
 # Don't include un-necessary files
 exclude:

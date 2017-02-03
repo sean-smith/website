@@ -9,10 +9,11 @@
 clean:
 	-rm -rf _site
 
-
 deploy:
 	jekyll build
 	aws s3 sync _site s3://seanssmith.com \
 		--exclude "*.DS_STORE" \
 		--delete
 
+test:
+	jekyll serve
