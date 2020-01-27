@@ -6,6 +6,9 @@
 # Then run:
 # 	make deploy
 
+test:
+	jekyll serve
+
 clean:
 	-rm -rf _site
 
@@ -15,5 +18,3 @@ deploy:
 		--exclude "*.DS_STORE" \
 		--delete
 
-test:
-	jekyll serve
