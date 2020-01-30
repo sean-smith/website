@@ -14,7 +14,7 @@ clean:
 
 deploy:
 	jekyll build
-	aws s3 sync _site s3://seanssmith.com \
+	aws s3 --profile personal sync _site s3://seanssmith.com \
 		--exclude "*.DS_STORE" \
 		--delete
 
