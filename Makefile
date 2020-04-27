@@ -10,7 +10,7 @@ test:
 	jekyll serve
 
 clean:
-	-rm -rf _site
+	-rm -rf _site .jekyll-cache
 
 deploy:
 	jekyll build
