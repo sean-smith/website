@@ -3,4 +3,4 @@ Sean Smith
 
 This is my webpage check it out [seanssmith.net](http://seanssmith.net). See below for a preview:
 
-![alt tag](https://raw.githubusercontent.com/sean-smith/sean-smith.github.io/master/img/frontpage.png)
+![alt tag](/img/frontpage.png)
