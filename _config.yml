@@ -8,3 +8,7 @@ includes_dir: includes
 exclude:
   - Makefile
   - README.md
+
+url: "https://seanssmith.net"
+plugins:
+  - jekyll-sitemap
